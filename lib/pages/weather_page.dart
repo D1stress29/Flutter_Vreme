@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vreme/models/weather_model.dart';
 import 'package:lottie/lottie.dart';
 import '../services/weather_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -65,11 +66,21 @@ _fetchWeather();
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(_weather?.cityName ?? "loading city..."),
-
+        Text(
+  _weather?.cityName ?? "Loading city...",
+  style: GoogleFonts.montserrat(
+    fontSize: 32,
+    
+  ),
+),
 Lottie.asset(getWeatherAnimation(_weather?.mainCondition ?? '')),
 
-        Text('${_weather?.temperature.round()}"C'),
+        Text(
+  '${_weather?.temperature?.round() ?? 0}°C',
+  style: GoogleFonts.montserrat(
+    fontSize: 32,
+  ),
+),
         ],
       ),
     ),
